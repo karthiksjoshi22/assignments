@@ -17,17 +17,28 @@ public class EmployeeMain {
             e[i]=new Employee();
 
         Scanner sc=new Scanner(System.in);
-
+        int ar[]=new int[5];
         for(int i=0;i<5; i++){
             System.out.println("enter the details of employee "+(i+1));
             System.out.print("name:");
             String name=sc.nextLine();
             e[i].setName(name);
-            System.out.print("num:");
-            int num=sc.nextInt();
+            boolean temp1=false;
+            int num;
+            OuterLoop: do{
+                System.out.print("num:");
+                num = sc.nextInt();
+                for (int j = 0; j <=i; j++) {
+                    if (ar[j] == num) {
+                        System.out.println("num must be unique");
+                        continue OuterLoop;
+                    }
+                    ar[j]=num;
+                }
+                temp1=true;
+            }while(!temp1);
             e[i].setNum(num);
-
-            int temp=0;
+            int temp=1;
             do{
                 System.out.println("enter the date in format yyyy/MM/dd");
                 String d=sc.next();
@@ -36,8 +47,9 @@ public class EmployeeMain {
                     temp=0;
                 }
                 catch(ParseException z){
-                    System.out.println("enter the date");
+                    System.out.println("Date is invalid");
                     z.getMessage();
+
                 }
             }while(temp!=0);
 

@@ -9,7 +9,7 @@ public class Emp
     public int empNumber;
     public String empName;
     public Date joiningDate;
-
+    SimpleDateFormat df = new SimpleDateFormat("dd/mm/yyyy");
     public void setEmpname(String empName)
     {
         this.empName = empName;
@@ -40,7 +40,7 @@ public class Emp
         Scanner input=new Scanner(System.in);
         System.out.println("Enter the joining date :: ");
         String ind = input.next();
-        SimpleDateFormat df = new SimpleDateFormat("dd/mm/yyyy");
+
         Date d = null;
         try
         {
@@ -57,7 +57,7 @@ public class Emp
     {
         System.out.println("Employee number = " + empNumber);
         System.out.println("Employee name = " + empName);
-        System.out.println("Employee joining date = " + joiningDate);
+        System.out.println("Employee joining date = " + df.getDateInstance().format(joiningDate));
     }
 }
 

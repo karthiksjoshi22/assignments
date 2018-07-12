@@ -6,14 +6,14 @@ public class TestCompartment {
         Random random=new Random();
         int num=0;
         for(int i=0;i<compartment.length;i++){
-            num=random.nextInt(4);
-            if(num==0){
+            num=random.nextInt(4)+1;
+            if(num==1){
                 compartment[i]=new FirstClass();
             }
-            else if(num==1){
+            else if(num==2){
                 compartment[i]=new Ladies();
             }
-            else if(num==2){
+            else if(num==3){
                 compartment[i]=new General();
             }
             else{
